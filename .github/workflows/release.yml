@@ -46,7 +46,7 @@ jobs:
       - name: Publish to CurseForge
         if: ${{ inputs.publish_curseforge }}
         env:
-          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_PUBLISH_TOKEN }}
         run: |
           CHANGELOG="$(cat CHANGELOG.md)" ./gradlew publishMods \
             -PpublishDryRun=${{ inputs.dry_run }} \
@@ -57,7 +57,7 @@ jobs:
       - name: Publish to Modrinth
         if: ${{ inputs.publish_modrinth }}
         env:
-          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_PUBLISH_TOKEN }}
         run: |
           CHANGELOG="$(cat CHANGELOG.md)" ./gradlew publishMods \
             -PpublishDryRun=${{ inputs.dry_run }} \
