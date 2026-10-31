@@ -9,6 +9,9 @@ dependencies {
 }
 
 loom {
+    mixin {
+        defaultRefmapName = 'hbhap.refmap.json'
+    }
     mods {
         "${mod_id}" {
             sourceSet sourceSets.main
